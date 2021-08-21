@@ -1,2 +1,7 @@
-const Home = () => (<div>Home</div>)
+import Card from "../../components/Card";
+const Home = () => (
+  <>
+    <Card />
+  </>
+);
 export default Home;
