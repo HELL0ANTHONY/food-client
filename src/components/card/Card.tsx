@@ -18,7 +18,7 @@ const Card = () => (
       <h3>Types</h3>
       <div>
         {types
-          ? types.map(({ name }: { name: string }, id) => (
+          ? types.map(({ name }: { name: string }, id: number) => (
               <span key={id}>{name}</span>
             ))
           : "No types"}
