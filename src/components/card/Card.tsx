@@ -1,27 +1,20 @@
-import { Main, Header, Image, Footer, URL } from "./CardStyles";
+import { Main, Header, Image, Footer } from "./CardStyles";
+import { Recipe } from "../../interfaces/Recipe.interface";
 
-const types: Array<{ name: string }> = [
-  { name: "typeOne" },
-  { name: "typeTwo" },
-  { name: "typeThree" }
-];
-
-const Card = () => (
+const Card = ({ name, types, image }: Recipe) => (
   <Main>
     <Header>
-      <h3>Food Name</h3>
+      <h3>{name}</h3>
     </Header>
     <Image>
-      <img src={URL} alt={"wolf"} />
+      <img src={image} alt={image} />
     </Image>
     <Footer>
       <h3>Types</h3>
       <div>
-        {types
-          ? types.map(({ name }: { name: string }, id: number) => (
-              <span key={id}>{name}</span>
-            ))
-          : "No types"}
+        {types.map((type: string, index: number) => (
+          <span key={`${type}-${index}`}>{type}</span>
+        ))}
       </div>
     </Footer>
   </Main>

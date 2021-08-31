@@ -1,5 +1,7 @@
 export interface Recipe {
-  name: string;
-  types: Array<string>;
-  _id: string;
+  readonly _id?: string;
+  readonly name: string;
+  readonly types: Array<string>;
+  readonly image?: string;
+  readonly punctuation?: number;
 }

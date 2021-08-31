@@ -1,23 +1,11 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { startResquest } from "../../redux/action-creators";
-
+import { Recipe } from "../../interfaces/Recipe.interface";
 import Card from "../../components/card/Card";
 
-const Home = () => {
-  const dispatch = useDispatch();
-  const { recipes } = useTypedSelector(state => state.recipe);
-  React.useEffect(() => {
-    dispatch(startResquest());
-  }, [dispatch]);
+const Home = ({ recipes }: { recipes: Recipe[] }) => (
+  <>
+    {recipes &&
+      recipes.map((props: Recipe) => <Card key={props._id} {...props} />)}
+  </>
+);
 
-  console.log("recipes values:", recipes);
-
-  return (
-    <>
-      <Card />
-    </>
-  );
-};
 export default Home;
